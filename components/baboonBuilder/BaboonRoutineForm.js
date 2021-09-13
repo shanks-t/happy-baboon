@@ -28,7 +28,7 @@ export const BaboonBuilderForm = () => {
     }
     return (
         <form className="ticketForm">
-            <h2 className="ticketForm__title">New Baboon Routine Form</h2>
+            <h2 className="ticketForm__title">Enter data for {new Date().toLocaleDateString()}</h2>
             
             <fieldset>
                 <div className="form-group">
@@ -58,6 +58,7 @@ export const BaboonBuilderForm = () => {
                          />
                 </div>
             </fieldset>
+            
             <button className="btn btn-primary" onClick={submitRoutine}>
                 Submit Routine
             </button>
