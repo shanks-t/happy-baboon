@@ -1,7 +1,7 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { BaboonBuilderForm } from "./baboonBuilder/BaboonBuilderForm"
-import { BaboonRoutineEntriesList } from "./baboonBuilder/BaboonRoutineEntriesList"
+import { BaboonRoutineEntriesList } from "./BaboonEntries/BaboonRoutineEntriesList"
 import { BaboonRoutineData } from "./baboonBuilder/BaboonRoutineData"
 
 export const ApplicationViews = () => {

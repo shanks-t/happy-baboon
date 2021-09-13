@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useHistory } from "react-router-dom"
 import { postFetch } from "../ApiManager"
+import "./BaboonRoutineData.css"
 
 
 export const BaboonRoutineData = () => {
@@ -8,20 +9,22 @@ export const BaboonRoutineData = () => {
         userId: 0, 
         didExercise: false,
         didMeditate: false,
-        date: 0
+        date: "",
+        anxietyLevel: 0
     });
     const history = useHistory()
 
     const submitRoutine = (event) => {
         event.preventDefault()
-        const newBaboonRoutine = {
+        const newRoutineData = {
             //userId: parseInt(localStorage.getItem("baboon_user")),
-            didExercise: baboonRoutine.didExercise,
-            didMeditate: baboonRoutine.didMeditate,
-            date: new Date().toLocaleDateString()
+            didExercise: routineData.didExercise,
+            didMeditate: routineData.didMeditate,
+            date: new Date().toLocaleDateString(),
+            anxietyLevel: routineData.anxietyLevel
         }
 
-        postFetch("http://localhost:8088/baboonRoutines", newBaboonRoutine)
+        postFetch("http://localhost:8088/baboonRoutineEntries", newRoutineData)
             .then(() => {
                 history.push("/baboonRoutineEntries")
             })
@@ -36,9 +39,9 @@ export const BaboonRoutineData = () => {
                     <input type="checkbox"
                         onChange={
                             (event) => {
-                                const copy = {...baboonRoutine}
+                                const copy = {...routineData}
                                 copy.didExercise = event.target.checked
-                                setBaboonRoutine(copy)
+                                setRoutineData(copy)
                             }
                         }
                          />
@@ -50,17 +53,38 @@ export const BaboonRoutineData = () => {
                     <input type="checkbox"
                         onChange={
                             (event) => {
-                                const copy = {...baboonRoutine}
+                                const copy = {...routineData}
                                 copy.didMeditate = event.target.checked
-                                setBaboonRoutine(copy)
+                                setRoutineData(copy)
                             }
                         }
                          />
                 </div>
             </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="description">Anxiety Level from 0.0 to 10.0:</label>
+                    <input
+                        onChange={
+                            (event) => {
+                                const copy = {...routineData}
+                                copy.anxietyLevel = event.target.value
+                                setRoutineData(copy)
+                            }
+                        }
+                        required autoFocus
+                        type="number"
+                        min="0.1"
+                        max="10"
+                        step=".1"
+                        className="anxiety"
+                        placeholder="Anxiety Level"
+                         />
+                </div>
+            </fieldset>
             
             <button className="btn btn-primary" onClick={submitRoutine}>
-                Submit Routine
+                Submit Data
             </button>
         </form>
     )
