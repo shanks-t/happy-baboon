@@ -6,6 +6,7 @@
 }
 .entry {
     width: 15rem;
+    margin-top: 1rem;
     padding: 1rem;
     background: linear-gradient(45deg, aqua, transparent);
     border: coral;
