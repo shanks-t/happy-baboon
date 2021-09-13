@@ -3,6 +3,7 @@ import ReactDOM from "react-dom"
 import { BrowserRouter } from "react-router-dom"
 import { Baboon } from "./components/Baboon.js"
 import "./index.css"
+import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
     <React.StrictMode>
