@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { useHistory } from "react-router-dom"
 import { postFetch } from "../ApiManager"
-import "./BaboonRoutineForm.css"
+import "./BaboonRoutineData.css"
 
 
 export const BaboonRoutineData = () => {
