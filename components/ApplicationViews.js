@@ -1,20 +1,20 @@
 import React from "react"
 import { Route } from "react-router-dom"
-import { BaboonBuilderForm } from "./baboonBuilder/BaboonRoutineForm"
+import { BaboonBuilderForm } from "./baboonBuilder/BaboonBuilderForm"
 import { BaboonRoutineEntriesList } from "./baboonBuilder/BaboonRoutineEntriesList"
-import { BaboonRoutineBuilderForm } from "./baboonBuilder/BaboonRoutineBuilderForm"
+import { BaboonRoutineData } from "./baboonBuilder/BaboonRoutineData"
 
 export const ApplicationViews = () => {
     return (
         <>
-            <Route exact path="/RoutineForm">
+            <Route exact path="/RoutineBuilder">
                 <BaboonBuilderForm />
             </Route>
             <Route exact path="/RoutineEntries">
                 <BaboonRoutineEntriesList />
             </Route>
-            <Route exact path="/RoutineBuilder">
-                <BaboonRoutineBuilderForm />
+            <Route exact path="/RoutineForm">
+                <BaboonRoutineData />
             </Route>
             
         </>
