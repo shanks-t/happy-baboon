@@ -9,9 +9,6 @@ export const NavBar = (props) => {
                 <Link className="navbar__link" to="/RoutineForm">Baboon Routine</Link>
             </li>
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/RoutineBuilder">Baboon Routine Builder</Link>
-            </li>
-            <li className="navbar__item active">
                 <Link className="navbar__link" to="/RoutineEntries">Baboon Routine Entries</Link>
             </li>
         </ul>
