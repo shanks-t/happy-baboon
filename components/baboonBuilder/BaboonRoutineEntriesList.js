@@ -6,10 +6,10 @@ export const BaboonRoutineEntriesList = () => {
 
     useEffect(
         () => {
-            getAllBaboonRoutineEntries("http://localhost:8088/http://localhost:8088/baboonRoutineEntries")
-                .then(res => res.json())
+            getAllBaboonRoutineEntries("http://localhost:8088/baboonRoutineEntries")
                 .then((data) => {
                     setEntries(data)
+                    console.log("data:", data)
                 })
         },
         []
@@ -17,17 +17,35 @@ export const BaboonRoutineEntriesList = () => {
 
     useEffect(
         () => {
-
+            
         },
         [entries]
     )
+    // useEffect(
+    //     () => {
+            
+    //     },
+    //     [entries]
+    // )
 
     return (
         <>
             {
                 entries.map(
                     (entryObject) => {
-                        return <p key={`customer--${entryObject.id}`}>{entryObject.name}</p>
+                        return <div key={`customer--${entryObject.id}`}> 
+                        {entryObject.date}
+                        {
+                            entryObject.didExercise === true
+                            ? <p>I exercised at least 45 minutes today</p>
+                            : <p>I did not exercise at least 45 minutes today</p>
+                        }
+                        {
+                            entryObject.didMeditate === true
+                            ? <p>I meditated at least 20 minutes today</p>
+                            : <p>I did not meditated at least 20 minutes today</p>
+                        }
+                        </div>
                     }
                 )
             }

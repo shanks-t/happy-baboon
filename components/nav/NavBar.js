@@ -8,6 +8,9 @@ export const NavBar = (props) => {
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/baboonBuilder">BaboonBuilder</Link>
             </li>
+            <li className="navbar__item active">
+                <Link className="navbar__link" to="/baboonRoutineEntries">Baboon Routine Entries</Link>
+            </li>
         </ul>
     )
 }
