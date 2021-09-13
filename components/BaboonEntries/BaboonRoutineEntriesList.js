@@ -21,6 +21,7 @@ export const BaboonRoutineEntriesList = () => {
     return (
         <>
        <>
+    <h2>Previous Entries</h2>
        <article className="entries-container">
                 {
                     entries.map(item => <RoutineEntry key={item.id} entry={item}/>)

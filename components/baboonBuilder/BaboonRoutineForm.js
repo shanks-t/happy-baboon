@@ -8,7 +8,8 @@ export const BaboonRoutineForm = () => {
         userId: 0, 
         didExercise: false,
         didMeditate: false,
-        date: 0
+        date: "",
+        anxietyLevel: 0
     });
     const history = useHistory()
 
@@ -18,7 +19,8 @@ export const BaboonRoutineForm = () => {
             //userId: parseInt(localStorage.getItem("baboon_user")),
             didExercise: routineData.didExercise,
             didMeditate: routineData.didMeditate,
-            date: new Date().toLocaleDateString()
+            date: new Date().toLocaleDateString(),
+            anxietyLevel: routineData.anxietyLevel
         }
 
         postFetch("http://localhost:8088/baboonRoutineEntries", newRoutineData)
@@ -65,7 +67,7 @@ export const BaboonRoutineForm = () => {
                         onChange={
                             (event) => {
                                 const copy = {...routineData}
-                                copy.hourlyRate = event.target.value
+                                copy.anxietyLevel = event.target.value
                                 setRoutineData(copy)
                             }
                         }

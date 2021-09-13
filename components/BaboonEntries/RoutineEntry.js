@@ -12,16 +12,22 @@ export default ({ entry }) => {
     return (    
         <div className="entry" key={`entry--${entry.id}`}> 
                 {entry.date}
+                <ul>
                 {
                     entry.didExercise === true
-                    ? <p>I exercised at least 45 minutes today</p>
-                    : <p>I did not exercise at least 45 minutes today</p>
+                    
+                    ? <li>✅ I exercised at least 45 minutes today</li>
+                    : <li>❌ I did not exercise at least 45 minutes today</li>
                 }
                 {
                     entry.didMeditate === true
-                    ? <p>I meditated at least 20 minutes today</p>
-                    : <p>I did not meditated at least 20 minutes today</p>
+                    ? <li>✅ I meditated at least 20 minutes today</li>
+                    : <li>❌ I did not meditated at least 20 minutes today</li>
                 }
+                {
+                   <p>Anxiety Level: {entry.anxietyLevel}</p>
+                }
+                </ul>
         </div>   
     )
 }
