@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { getAllBaboonRoutineEntries } from "../ApiManager"
+import "./BaboonRoutineEntries.css"
 
 export const BaboonRoutineEntriesList = () => {
     const [entries, setEntries] = useState([])
@@ -30,10 +31,11 @@ export const BaboonRoutineEntriesList = () => {
 
     return (
         <>
+        <section className="entries-container">
             {
                 entries.map(
                     (entryObject) => {
-                        return <div key={`customer--${entryObject.id}`}> 
+                        return <div className="entry" key={`customer--${entryObject.id}`}> 
                         {entryObject.date}
                         {
                             entryObject.didExercise === true
@@ -49,6 +51,7 @@ export const BaboonRoutineEntriesList = () => {
                     }
                 )
             }
+            </section>
         </>
     )
 }

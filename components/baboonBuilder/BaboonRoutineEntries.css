@@ -1,9 +1,12 @@
-.routine-entries {
+.entries-container {
     display: flex;
-    margin: 8em;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 5em;
+   justify-content: space-evenly;
 }
 .entry {
+    width: 15rem;
+    padding: 1rem;
     background: linear-gradient(45deg, aqua, transparent);
     border: coral;
     border-style: solid;
