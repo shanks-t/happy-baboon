@@ -9,28 +9,28 @@ export const Register = (props) => {
 
     const history = useHistory()
 
-    useEffect(
-        () => {
-            getFetch("http://localhost:8088/users")
-                .then
-                    (user => !!user.length)   
-        },
-        []
-    )
-    // const existingUserCheck = () => {
-    //     return fetch(`http://localhost:8088/users?email=${user.email}`)
-    //         .then(res => res.json())
-    //         .then(user => !!user.length)
-    // }
+
+    const existingUserCheck = () => {
+        return fetch(`http://localhost:8088/users?email=${user.email}`)
+            .then(res => res.json())
+            .then(user => !!user.length)
+    }
     const handleRegister = (e) => {
         e.preventDefault()
-        getFetch(`http://localhost:8088/users?email=${user.email}`)
+        existingUserCheck()
             .then((userExists) => {
                 if (!userExists) {
-                    postFetch("http://localhost:8088/users", user)
+                fetch("http://localhost:8088/users", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(user)
+                    })
+                        .then(res => res.json())
                         .then(createdUser => {
                             if (createdUser.hasOwnProperty("id")) {
-                                localStorage.setItem("kandy_user", createdUser.id)
+                                localStorage.setItem("baboon_user", createdUser.id)
                                 history.push("/")
                             }
                         })
@@ -62,10 +62,6 @@ export const Register = (props) => {
                     <input onChange={updateuser}
                            type="text" id="name" className="form-control"
                            placeholder="Enter your name" required autoFocus />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="address"> Address </label>
-                    <input onChange={updateuser} type="text" id="address" className="form-control" placeholder="Street address" required />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="email"> Email address </label>
