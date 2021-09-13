@@ -5,7 +5,7 @@ import "./BaboonRoutineData.css"
 
 
 export const BaboonRoutineData = () => {
-    const [baboonRoutine, setBaboonRoutine] = useState({
+    const [routineData, setRoutineData] = useState({
         userId: 0, 
         didExercise: false,
         didMeditate: false,
