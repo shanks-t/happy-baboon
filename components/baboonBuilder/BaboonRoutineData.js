@@ -3,8 +3,9 @@ import { useHistory } from "react-router-dom"
 import { postFetch } from "../ApiManager"
 import "./BaboonRoutineForm.css"
 
-export const BaboonRoutineForm = () => {
-    const [routineData, setRoutineData] = useState({
+
+export const BaboonRoutineData = () => {
+    const [baboonRoutine, setBaboonRoutine] = useState({
         userId: 0, 
         didExercise: false,
         didMeditate: false,

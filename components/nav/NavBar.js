@@ -11,6 +11,19 @@ export const NavBar = (props) => {
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/RoutineEntries">Baboon Routine Entries</Link>
             </li>
+
+            <li className="navbar__item active">
+                <Link className="navbar__link" to="#"
+                onClick={ 
+                    ()=> {
+                        localStorage.removeItem("baboon_user")
+                    }
+                    }>
+                    
+                    Logout
+                </Link>
+
+            </li>
         </ul>
     )
 }

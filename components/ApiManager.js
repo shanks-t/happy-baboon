@@ -13,3 +13,8 @@ export const postFetch =(url, data) => {
 })
     .then(res => res.json())
 }
+
+export const getFetch = (url) => {
+    return fetch(url)
+    .then(res => res.json())
+}
