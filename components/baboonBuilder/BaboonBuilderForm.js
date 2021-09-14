@@ -9,7 +9,16 @@ export const BaboonBuilderForm = () => {
  const [routine2, setRoutine2] = useState("")
  const [routine3, setRoutine3] = useState("")
     
-
+    // useEffect(
+    //     () => {
+    //          getFetch(`http://localhost:8088/baboonRoutines`)
+    //         .then((data) => {
+    //             getAddedRoutines(data)
+    //             console.log("routines:", data)
+    //         })
+    //     },
+    //     []
+    // )
 const addRoutine = (event) => {
     event.preventDefault()
     const obj = {
