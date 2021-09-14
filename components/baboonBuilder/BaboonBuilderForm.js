@@ -9,28 +9,21 @@ export const BaboonBuilderForm = () => {
  const [routine2, setRoutine2] = useState("")
  const [routine3, setRoutine3] = useState("")
     
-    // useEffect(
-    //     () => {
-    //          getFetch(`http://localhost:8088/baboonRoutines`)
-    //         .then((data) => {
-    //             getAddedRoutines(data)
-    //             console.log("routines:", data)
-    //         })
-    //     },
-    //     []
-    // )
-    // const addRoutine = (event) => {
-    //     event.preventDefault()
-    //     const obj = {
-    //         userId: parseInt(localStorage.getItem("baboon_user")),
-    //         firstRoutine: routines.firstRoutine
-    //     }
 
-    //     postFetch("http://localhost:8088/baboonRoutines", obj)
-    //         .then(() => {
-             
-    //         })
-    
+const addRoutine = (event) => {
+    event.preventDefault()
+    const obj = {
+        userId: parseInt(localStorage.getItem("baboon_user")),
+        routine1: routine1,
+        routine2: routine2,
+        routine3: routine3
+    }
+
+    postFetch("http://localhost:8088/baboonRoutines", obj)
+        .then(() => {
+            
+        })
+    }
     // const editRoutine = (event) => {
     //     event.preventDefault()
     //     const obj = {
@@ -101,7 +94,7 @@ export const BaboonBuilderForm = () => {
         </form>
                 {
                     
-                            <button 
+                            <button onClick={addRoutine}
                             >Submit This Routine</button>
                             
                 }
