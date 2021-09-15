@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react"
 import { getAllBaboonRoutineEntries } from "../ApiManager"
 import Entry from "./Entry"
 import "./BaboonRoutineEntries.css"
-import { getFetch } from "../ApiManager"
+
 
 export const BaboonRoutineEntriesList = () => {
     const [entries, setEntries] = useState([])
-    const [routines, setRoutines] = useState([])
+    
     
     useEffect(
         () => {
@@ -21,15 +21,13 @@ export const BaboonRoutineEntriesList = () => {
 
 
     return (
-        <>
        <>
-    <h2>Previous Entries</h2>
-       <article className="entries-container">
+        <h2>Previous Entries</h2>
+            <article className="entries-container">
                 {
                     entries.map(item => <Entry entryKey={item.id} entry={item}/>)
                 }
             </article>
-        </>
     )
         </>
     )

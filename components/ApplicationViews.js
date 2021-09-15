@@ -4,6 +4,7 @@ import { BaboonBuilderForm } from "./baboonBuilder/BaboonBuilderForm"
 import { BaboonRoutineEntriesList } from "./baboonEntries/BaboonRoutineEntriesList"
 import { BaboonRoutineData } from "./baboonBuilder/BaboonRoutineData"
 import { BaboonRoutineList } from "./baboonBuilder/BaboonRoutineList"
+import { Chart } from "./charts/Chart"
 
 export const ApplicationViews = () => {
     return (
@@ -19,6 +20,10 @@ export const ApplicationViews = () => {
             </Route>
             <Route exact path="/RoutineForm">
                 <BaboonRoutineData />
+            </Route>
+            
+            <Route exact path="/charts">
+                <Chart />
             </Route>
             
         </>
