@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 //import { Link, useParams } from "react-router-dom"
 //import useSimpleAuth from "../../hooks/ui/useSimpleAuth";
+
 import "./BaboonRoutineEntries.css"
 
 
@@ -11,21 +12,26 @@ export default ({ entry }) => {
 
     return (    
         <div className="entry" key={`entry--${entry.id}`}> 
-                {entry.date}
+                {entry?.date}
                 <ul>
                 {
-                    entry.didExercise === true
+                    entry?.didRoutine1 === true
                     
-                    ? <li>✅ I exercised at least 45 minutes today</li>
-                    : <li>❌ I did not exercise at least 45 minutes today</li>
+                    ? <li>✅ I did {entry?.baboonRoutine?.routine1}</li>
+                    : <li>❌ I did not {entry?.baboonRoutine?.routine1}</li>
                 }
                 {
-                    entry.didMeditate === true
-                    ? <li>✅ I meditated at least 20 minutes today</li>
-                    : <li>❌ I did not meditated at least 20 minutes today</li>
+                    entry?.didRoutine2 === true
+                    ? <li>✅ I did {entry?.baboonRoutine?.routine2}</li>
+                    : <li>❌ I did not {entry?.baboonRoutine?.routine2}</li>
                 }
                 {
-                   <p>Anxiety Level: {entry.anxietyLevel}</p>
+                    entry?.didRoutine3 === true
+                    ? <li>✅ I did {entry?.baboonRoutine?.routine3}</li>
+                    : <li>❌ I did not {entry?.baboonRoutine?.routine3}</li>
+                }
+                {
+                   <p>Anxiety Level: {entry?.anxietyLevel}</p>
                 }
                 </ul>
         </div>   

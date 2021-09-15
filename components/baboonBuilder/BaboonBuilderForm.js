@@ -83,7 +83,7 @@ const addRoutine = (event) => {
                             }
                         }
                         type="text"
-                        placeholder="enter routine 1 here"
+                        placeholder="enter routine 2 here"
                          />
                     </div>
                     <div>
@@ -95,7 +95,7 @@ const addRoutine = (event) => {
                             }
                         }
                         type="text"
-                        placeholder="enter routine 1 here"
+                        placeholder="enter routine 3 here"
                          />
                     </div>
                 </div>

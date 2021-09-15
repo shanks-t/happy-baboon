@@ -6,7 +6,15 @@ import "./BaboonRoutineData.css"
 
 export const BaboonRoutineData = () => {
     const [routines, setRoutines] = useState({})
-    const [routineData, setRoutineData] = useState({});
+    const [routineData, setRoutineData] = useState({
+        userId: 0,
+        baboonRoutineId:0,
+        didRoutine1: false,
+        didRoutine2: false,
+        didRoutine3: false,
+        anxietyLevel: false,
+        date: "",
+    });
     const history = useHistory()
 
     const getBuilderForm = () => {
@@ -25,7 +33,8 @@ export const BaboonRoutineData = () => {
     const submitRoutine = (event) => {
         event.preventDefault()
         const newRoutineData = {
-            //userId: parseInt(localStorage.getItem("baboon_user")),
+            userId: parseInt(localStorage.getItem("baboon_user")),
+            baboonRoutineId: routines[0]?.id,
             didRoutine1: routineData.didRoutine1,
             didRoutine2: routineData.didRoutine2,
             didRoutine3: routineData.didRoutine3,
