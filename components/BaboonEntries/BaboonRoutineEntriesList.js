@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react"
 import { getAllBaboonRoutineEntries } from "../ApiManager"
-import RoutineEntry from "./RoutineEntry"
+import Entry from "./Entry"
 import "./BaboonRoutineEntries.css"
+import { getFetch } from "../ApiManager"
 
 export const BaboonRoutineEntriesList = () => {
     const [entries, setEntries] = useState([])
-
+    const [routines, setRoutines] = useState([])
+    
     useEffect(
         () => {
-            getAllBaboonRoutineEntries("http://localhost:8088/baboonRoutineEntries")
+            getAllBaboonRoutineEntries("http://localhost:8088/baboonRoutineEntries?_expand=baboonRoutine")
                 .then((data) => {
                     setEntries(data)
-                    console.log("data:", data)
+                    console.log("entries:", data)
                 })
         },
         []
@@ -24,7 +26,7 @@ export const BaboonRoutineEntriesList = () => {
     <h2>Previous Entries</h2>
        <article className="entries-container">
                 {
-                    entries.map(item => <RoutineEntry key={item.id} entry={item}/>)
+                    entries.map(item => <Entry entryKey={item.id} entry={item}/>)
                 }
             </article>
         </>

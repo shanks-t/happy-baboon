@@ -1,0 +1,30 @@
+
+.routines-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+   justify-content: space-evenly;
+}
+.routine {
+    width: 15rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: linear-gradient(45deg, aqua, transparent);
+    border: coral;
+    border-style: solid;
+}
+
+.routine:hover {
+    animation: jiggle 0.2s;
+    transition: .4s all ease;
+    z-index: 11;
+    box-shadow: 5px 15px 20px rgba(72, 62, 23, 0.4)
+}
+
+li {
+    text-align: left;
+}
+
+p {
+   text-align: center;
+}
