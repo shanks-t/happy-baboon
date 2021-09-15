@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
-import { postFetch, getFetch, putFetch } from "../ApiManager"
+import { postFetch } from "../ApiManager"
 import "./BaboonBuilderForm.css"
 
 
@@ -27,7 +27,7 @@ const addRoutine = (event) => {
     return (
        <>    
         <form className="ticketForm">
-            <h2 className="ticketForm__title">Add Routines To Baboon Routine</h2>
+            <h2 className="ticketForm__title">Add Goals To Create Your own Happy Baboon Routine</h2>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="description">Routine (word routine as a true/false e.g. "meditate 30 minutes a day"):</label>
