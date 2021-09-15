@@ -1,10 +1,5 @@
-.routine-entries {
-    display: flex;
-    margin: 8em;
-    justify-content: space-between;
-}
-.entry {
-    background: linear-gradient(45deg, aqua, transparent);
-    border: coral;
-    border-style: solid;
+
+
+ul {
+    list-style-type: none;
 }

@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from "react"
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom"
-import { getFetch } from "../ApiManager"
 import "./Login.css"
 
 export const Login = () => {
@@ -9,18 +8,14 @@ export const Login = () => {
     const existDialog = useRef()
     const history = useHistory()
 
-    useEffect(
-        () => {
-            getFetch(`http://localhost:8088/users?email=${email}`)
-                .then(user => user.length ? user[0] : false)
-                
-        },
-    []
-)
+    const existingUserCheck = () => {
+        return fetch(`http://localhost:8088/customers?email=${email}`)
+            .then(res => res.json())
+            .then(user => user.length ? user[0] : false)
+    }
     const handleLogin = (e) => {
-        
         e.preventDefault()
-        getFetch(`http://localhost:8088/users?email=${email}`)
+        existingUserCheck()
             .then(exists => {
                 if (exists) {
                     localStorage.setItem("baboon_user", exists[0].id)
