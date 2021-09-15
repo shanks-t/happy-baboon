@@ -8,17 +8,8 @@ export const BaboonBuilderForm = () => {
  const [routine1, setRoutine1] = useState("")
  const [routine2, setRoutine2] = useState("")
  const [routine3, setRoutine3] = useState("")
-    
-    // useEffect(
-    //     () => {
-    //          getFetch(`http://localhost:8088/baboonRoutines`)
-    //         .then((data) => {
-    //             getAddedRoutines(data)
-    //             console.log("routines:", data)
-    //         })
-    //     },
-    //     []
-    // )
+ const history = useHistory()
+
 const addRoutine = (event) => {
     event.preventDefault()
     const obj = {
@@ -30,31 +21,9 @@ const addRoutine = (event) => {
 
     postFetch("http://localhost:8088/baboonRoutines", obj)
         .then(() => {
-            
+            history.push("/Routines")
         })
     }
-    // const editRoutine = (event) => {
-    //     event.preventDefault()
-    //     const obj = {
-    //         userId: parseInt(localStorage.getItem("baboon_user")),
-    //         firstRoutine: routines.firstRoutine,
-    //         secondRoutine: "",
-    //         thirdRoutine: "",
-    //         fourthRoutine: "",
-    //         fifthRoutine: ""
-    //     }
-
-    //     postFetch("http://localhost:8088/baboonRoutines", obj)
-    //         .then(() => {
-             
-    //         })
-    // }
-    // const deleteRoutine = (id) => {
-    //     fetch(`http://localhost:8088/employees/${id}`, {
-    //         method: "DELETE"
-    //     })
-    //     .then(getEmployees)
-    // }
     return (
        <>    
         <form className="ticketForm">
