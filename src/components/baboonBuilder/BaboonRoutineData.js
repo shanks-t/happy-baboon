@@ -25,7 +25,7 @@ export const BaboonRoutineData = () => {
     useEffect(
         () => {
             getBuilderForm()
-            console.log("routines:", routines)
+            
         },
         []
     )
