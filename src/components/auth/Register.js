@@ -1,77 +1,91 @@
-import React, { useRef, useState, useEffect } from "react"
-import { useHistory } from "react-router-dom"
-import { postFetch, getFetch } from "../ApiManager"
+import React, { useState } from "react"
+import { useHistory } from "react-router-dom";
+import useSimpleAuth from "./useSimpleAuth"
 import "./Login.css"
 
-export const Register = (props) => {
-    const [user, setUser] = useState({})
-    const conflictDialog = useRef()
-
+export const Register = () => {
+    const [credentials, syncAuth] = useState({
+        name: "",
+        email: "",
+        admin: false
+    })
+    const { register } = useSimpleAuth()
     const history = useHistory()
 
-
-    const existingUserCheck = () => {
-        return fetch(`http://localhost:8088/users?email=${user.email}`)
-            .then(res => res.json())
-            .then(user => !!user.length)
-    }
     const handleRegister = (e) => {
         e.preventDefault()
-        existingUserCheck()
-            .then((userExists) => {
-                if (!userExists) {
-                fetch("http://localhost:8088/users", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify(user)
-                    })
-                        .then(res => res.json())
-                        .then(createdUser => {
-                            if (createdUser.hasOwnProperty("id")) {
-                                localStorage.setItem("baboon_user", createdUser.id)
-                                history.push("/")
-                            }
-                        })
-                }
-                else {
-                    conflictDialog.current.showModal()
-                }
-            })
+
+        const newUser = {
+            name: `${credentials.firstName} ${credentials.lastName}`,
+            email: credentials.email,
+            admin: credentials.admin
+        }
+
+        register(newUser).then(() => {
+            history.push("/")
+        })
     }
 
-    const updateuser = (evt) => {
-        const copy = {...user}
-        copy[evt.target.id] = evt.target.value
-        setUser(copy)
+    const handleUserInput = (event) => {
+        const copy = {...credentials}
+        copy[event.target.id] = event.target.value
+        syncAuth(copy)
     }
 
 
     return (
         <main style={{ textAlign: "center" }}>
-            <dialog className="dialog dialog--password" ref={conflictDialog}>
-                <div>Account with that email address already exists</div>
-                <button className="button--close" onClick={e => conflictDialog.current.close()}>Close</button>
-            </dialog>
-
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for Kandy's Candy Korner</h1>
+                <h1 className="h3 mb-3 font-weight-normal">Please Register for NSS Kennels</h1>
                 <fieldset>
-                    <label htmlFor="name"> Full Name </label>
-                    <input onChange={updateuser}
-                           type="text" id="name" className="form-control"
-                           placeholder="Enter your name" required autoFocus />
+                    <label htmlFor="firstName"> First Name </label>
+                    <input type="text" onChange={handleUserInput}
+                        id="firstName"
+                        className="form-control"
+                        placeholder="First name"
+                        required autoFocus />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="email"> Email address </label>
-                    <input onChange={updateuser} type="email" id="email" className="form-control" placeholder="Email address" required />
+                    <label htmlFor="lastName"> Last Name </label>
+                    <input type="text" onChange={handleUserInput}
+                        id="lastName"
+                        className="form-control"
+                        placeholder="Last name"
+                        required />
                 </fieldset>
                 <fieldset>
-                    <button type="submit"> Register </button>
+                    <label htmlFor="inputEmail"> Email address </label>
+                    <input type="email" onChange={handleUserInput}
+                        id="email"
+                        className="form-control"
+                        placeholder="Email address"
+                        required />
+                </fieldset>
+                <fieldset>
+                    <input
+                        onChange={
+                            (event) => {
+                                const copy = { ...credentials }
+                                if (event.target.value === "on") {
+                                    copy.admin = true
+                                }
+                                else {
+                                    copy.admin = false
+                                }
+                                syncAuth(copy)
+                            }
+                        }
+                        defaultChecked={credentials.admin}
+                        type="checkbox" name="admin" id="admin" />
+                    <label htmlFor="admin"> Administer Account? </label>
+                </fieldset>
+
+                <fieldset>
+                    <button type="submit">
+                        Sign in
+                    </button>
                 </fieldset>
             </form>
         </main>
     )
 }
-
