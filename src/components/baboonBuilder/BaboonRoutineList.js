@@ -5,6 +5,7 @@ import { getFetch } from "../ApiManager"
 
 export const BaboonRoutineList = () => {
     const [routines, setRoutines] = useState([])
+    const [user, setUser] = useState([])
     
     useEffect(
         () => {
@@ -17,13 +18,25 @@ export const BaboonRoutineList = () => {
         []
     )
 
+    const getCurrentUser = () => {
+        const currUserId = localStorage.getItem("baboon_user")
+        return currUserId
+     }
+    useEffect(
+        () => {
+             const id = getCurrentUser()
+             setUser(parseInt(id))
+        },
+        []
+    )
+
 
     return (
         <>
         <h2>Current Routines</h2>
         <article className="routines-container">
                     {
-                        routines.map(item => <Routine entryKey={item.id} routine={item}/>)
+                        routines.filter(elem => elem.userId === user).map(item => <Routine entryKey={item.id} routine={item}/>)
                     }
                 </article>
         </>
