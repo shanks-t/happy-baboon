@@ -12,7 +12,7 @@ export const Chart = () => {
             const data = await res.json()
                   setChartData({
                       labels: data.map((item) => item.date),
-                      dataSets: [
+                      datasets: [
                           {
                               label: "Anxiety Level",
                               data: data.map((item) => item.anxietyLevel),
@@ -37,6 +37,14 @@ export const Chart = () => {
         <div className="chart">
             <Line
              data={chartData}
+             options={{
+                    scales: {
+                        y: {
+                            suggestedMin: 0,
+                            suggestedMax: 10
+                        }
+                    }
+            }}
              />
         </div>
 
