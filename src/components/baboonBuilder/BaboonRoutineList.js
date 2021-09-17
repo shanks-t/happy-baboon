@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { getAllBaboonRoutineEntries } from "../ApiManager"
 import Routine from "./Routine"
-import { getFetch } from "../ApiManager"
+
 
 export const BaboonRoutineList = () => {
     const [routines, setRoutines] = useState([])
