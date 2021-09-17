@@ -6,6 +6,7 @@ import "./BaboonRoutineEntries.css"
 
 export const BaboonRoutineEntriesList = () => {
     const [entries, setEntries] = useState([])
+    const [user, setUser] = useState([])
     
     
     useEffect(
@@ -18,14 +19,24 @@ export const BaboonRoutineEntriesList = () => {
         },
         []
     )
-
+    const getCurrentUser = () => {
+        const currUserId = localStorage.getItem("baboon_user")
+        return currUserId
+     }
+    useEffect(
+        () => {
+             const id = getCurrentUser()
+             setUser(parseInt(id))
+        },
+        []
+    )
 
     return (
        <>
         <h2>Previous Entries</h2>
             <article className="entries-container">
                 {
-                    entries.map(item => <Entry entryKey={item.id} entry={item}/>)
+                    entries.filter(elem => elem.userId === user).map(item => <Entry entryKey={item.id} entry={item}/>)
                 }
             </article>
     )
