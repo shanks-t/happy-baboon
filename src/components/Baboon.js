@@ -1,6 +1,6 @@
 import React from "react"
 import { Route, Redirect } from "react-router-dom";
-import { NavBar } from "./nav/NavBar"
+import { NavBarImg } from "./nav/NavBarImg"
 import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
 import { ApplicationViews } from "./ApplicationViews";
@@ -14,7 +14,7 @@ export const Baboon = () => {
           if (localStorage.getItem("baboon_user")) {
             return (
               <>
-                <NavBar />
+                <NavBarImg />
                 <ApplicationViews />
               </>
             );
