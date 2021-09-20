@@ -9,7 +9,7 @@ export const BaboonRoutineList = () => {
     
     useEffect(
         () => {
-            getAllBaboonRoutineEntries("http://localhost:8088/baboonRoutines")
+            getAllBaboonRoutineEntries("http://localhost:8088/routines")
                 .then((data) => {
                     setRoutines(data)
                     console.log("routines:", data)
