@@ -8,7 +8,7 @@ export const Chart = () => {
     useEffect(
       () => {
          const fetchChartData = async () => {
-            const res = await fetch("http://localhost:8088/baboonRoutineEntries")
+            const res = await fetch("http://localhost:8088/routineEntries")
             const data = await res.json()
                   setChartData({
                       labels: data.map((item) => item.date),

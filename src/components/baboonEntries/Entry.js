@@ -16,18 +16,18 @@ export default ({ entry }) => {
                 {
                     entry?.didRoutine1 === true
                     
-                    ? <li>✅ I did {entry?.baboonRoutine?.routine1}</li>
-                    : <li>❌ I did not {entry?.baboonRoutine?.routine1}</li>
+                    ? <li>✅ I did {entry?.routines?.routine1}</li>
+                    : <li>❌ I did not {entry?.routines?.routine1}</li>
                 }
                 {
                     entry?.didRoutine2 === true
-                    ? <li>✅ I did {entry?.baboonRoutine?.routine2}</li>
-                    : <li>❌ I did not {entry?.baboonRoutine?.routine2}</li>
+                    ? <li>✅ I did {entry?.routines?.routine2}</li>
+                    : <li>❌ I did not {entry?.routines?.routine2}</li>
                 }
                 {
                     entry?.didRoutine3 === true
-                    ? <li>✅ I did {entry?.baboonRoutine?.routine3}</li>
-                    : <li>❌ I did not {entry?.baboonRoutine?.routine3}</li>
+                    ? <li>✅ I did {entry?.routines?.routine3}</li>
+                    : <li>❌ I did not {entry?.routines?.routine3}</li>
                 }
                 {
                    <p>Anxiety Level: {entry?.anxietyLevel}</p>

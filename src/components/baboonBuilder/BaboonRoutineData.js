@@ -18,7 +18,7 @@ export const BaboonRoutineData = () => {
     const history = useHistory()
 
     const getBuilderForm = () => {
-        return getFetch("http://localhost:8088/baboonRoutines")
+        return getFetch("http://localhost:8088/routines")
         .then(d => setRoutines(d))
     }
 
@@ -34,7 +34,7 @@ export const BaboonRoutineData = () => {
         event.preventDefault()
         const newRoutineData = {
             userId: parseInt(localStorage.getItem("baboon_user")),
-            baboonRoutineId: routines[0]?.id,
+            routinesId: routines[0]?.id,
             didRoutine1: routineData.didRoutine1,
             didRoutine2: routineData.didRoutine2,
             didRoutine3: routineData.didRoutine3,
@@ -42,7 +42,7 @@ export const BaboonRoutineData = () => {
             date: new Date().toLocaleDateString(),
         }
 
-        postFetch("http://localhost:8088/baboonRoutineEntries", newRoutineData)
+        postFetch("http://localhost:8088/routineEntries", newRoutineData)
             .then(() => {
                 history.push("/RoutineEntries")
             })

@@ -11,7 +11,7 @@ export const BaboonRoutineEntriesList = () => {
     
     useEffect(
         () => {
-            getAllBaboonRoutineEntries("http://localhost:8088/baboonRoutineEntries?_expand=baboonRoutine")
+            getAllBaboonRoutineEntries("http://localhost:8088/routineEntries?_expand=routines")
                 .then((data) => {
                     setEntries(data)
                     console.log("entries:", data)
