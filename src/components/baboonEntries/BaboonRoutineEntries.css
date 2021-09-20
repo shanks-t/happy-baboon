@@ -12,6 +12,7 @@
     background: linear-gradient(45deg, aqua, transparent);
     border: coral;
     border-style: solid;
+    border-radius: 10%;
 }
 
 .entry:hover {
@@ -27,6 +28,9 @@ li {
 
 p {
    text-align: justify;
+}
+h3 {
+    text-align: center;
 }
 h2 {
     background-color: aqua;

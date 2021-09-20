@@ -12,6 +12,7 @@
     background: linear-gradient(45deg, aqua, transparent);
     border: coral;
     border-style: solid;
+    border-radius: 10%;
 }
 
 .routine:hover {

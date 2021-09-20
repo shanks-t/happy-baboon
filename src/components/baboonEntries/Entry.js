@@ -11,7 +11,9 @@ export default ({ entry }) => {
 
     return (    
         <div className="entry" key={`entry--${entry.id}`}> 
-                {entry?.date}
+            <h3>
+            {entry?.date}
+            </h3>
                 <ul>
                 {
                     entry?.didRoutine1 === true
