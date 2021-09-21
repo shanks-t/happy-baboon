@@ -37,7 +37,7 @@ export const BaboonRoutineData = () => {
                 const res = await fetch("http://localhost:8088/routines")
                 const data = await res.json()
                       const filtered = (data.filter((item) => item.id === activeRoutineId))
-                      setActiveRoutine(filtered[0])
+                      setActiveRoutine(filtered)
                     }
                     getBuilderForm()
             },
@@ -65,10 +65,10 @@ export const BaboonRoutineData = () => {
     }
     return (
         <form className="ticketForm">
-            <h2 className="ticketForm__title">Enter data for {new Date().toLocaleDateString()}</h2>
+            <h2 className="ticketForm__title">Enter Routine {activeRoutine[0].id} Data for {new Date().toLocaleDateString()}</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">{activeRoutine?.routine1}</label>
+                    <label htmlFor="name">{activeRoutine[0]?.routine1}</label>
                     <input type="checkbox"
                         onChange={
                             (event) => {
@@ -82,7 +82,7 @@ export const BaboonRoutineData = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">{activeRoutine?.routine2}</label>
+                    <label htmlFor="name">{activeRoutine[0]?.routine2}</label>
                     <input type="checkbox"
                         onChange={
                             (event) => {
@@ -96,7 +96,7 @@ export const BaboonRoutineData = () => {
                 </fieldset>
                 <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">{activeRoutine?.routine3}</label>
+                    <label htmlFor="name">{activeRoutine[0]?.routine3}</label>
                     <input type="checkbox"
                         onChange={
                             (event) => {
