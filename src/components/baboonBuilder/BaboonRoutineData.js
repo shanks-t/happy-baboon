@@ -6,7 +6,7 @@ import "./BaboonRoutineData.css"
 
 export const BaboonRoutineData = () => {
     const [ activeRoutine, setActiveRoutine] = useState({})
-    const [activeRoutineId, setActiveRoutineId] = useState({})
+    const [activeRoutineId, setActiveRoutineId] = useState(0)
     const [routineData, setRoutineData] = useState({
         userId: 0,
         baboonRoutineId:0,
@@ -33,18 +33,25 @@ export const BaboonRoutineData = () => {
     
     useEffect(
         () => {
-            const getBuilderForm  = async () => {
-                const res = await fetch("http://localhost:8088/routines")
-                const data = await res.json()
-                      const filtered = (data.filter((item) => item.id === activeRoutineId))
-                      setActiveRoutine(filtered)
-                    }
-                    getBuilderForm()
-            },
-        []
+            if (activeRoutineId) {
+                const getBuilderForm = () => {
+                    return fetch("http://localhost:8088/routines")
+                    .then(res => res.json())
+                    .then((data) => {
+                        const filtered = data.filter((item) => item.id === activeRoutineId)
+                        setActiveRoutine(filtered[0])
+                    })
+                }
+                getBuilderForm()
+            }
+        },
+[activeRoutineId]
     )
+  
+useEffect(() => {
     console.log("activeRoutine", activeRoutine)
     console.log("activeRoutineId", activeRoutineId)
+}, [activeRoutine, activeRoutineId])
 
     const submitRoutine = (event) => {
         event.preventDefault()
@@ -65,10 +72,10 @@ export const BaboonRoutineData = () => {
     }
     return (
         <form className="ticketForm">
-            <h2 className="ticketForm__title">Enter Routine {activeRoutine[0].id} Data for {new Date().toLocaleDateString()}</h2>
+            <h2 className="ticketForm__title">Enter Routine {activeRoutine?.id} Data for {new Date().toLocaleDateString()}</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">{activeRoutine[0]?.routine1}</label>
+                    <label htmlFor="name">{activeRoutine?.routine1}</label>
                     <input type="checkbox"
                         onChange={
                             (event) => {
@@ -82,7 +89,7 @@ export const BaboonRoutineData = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">{activeRoutine[0]?.routine2}</label>
+                    <label htmlFor="name">{activeRoutine?.routine2}</label>
                     <input type="checkbox"
                         onChange={
                             (event) => {
@@ -96,7 +103,7 @@ export const BaboonRoutineData = () => {
                 </fieldset>
                 <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">{activeRoutine[0]?.routine3}</label>
+                    <label htmlFor="name">{activeRoutine?.routine3}</label>
                     <input type="checkbox"
                         onChange={
                             (event) => {

@@ -17,11 +17,6 @@ const handleClick = (id) => {
     setActiveRoutine(id)
 }
 
-const func = () => {
-    if(routine.id === localStorage.getItem("activeRoutine")) {
-        return true 
-    }
-}
 
     return (    
         <div className="routine" key={`routine--${routine.id}`}> 
@@ -35,7 +30,6 @@ const func = () => {
                 <div className="form-group">
                     <label htmlFor="name">Activate Routine {routine.id}</label>
                     <input type="checkbox"
-                        checked={func()}
                         onChange={
                             (event) => {
                                 handleClick(routine.id)
