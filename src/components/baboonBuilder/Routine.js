@@ -1,9 +1,27 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import "./Routine.css"
 
 
-export default ({ routine }) => {
+export const Routine = ({ routine }) => {
+const [activeRoutine, setActiveRoutine] = useState({})
 
+useEffect(
+    () => {
+
+}, 
+[activeRoutine]
+)
+
+const handleClick = (id) => {
+    localStorage.setItem("activeRoutine", id)
+    setActiveRoutine(id)
+}
+
+const func = () => {
+    if(routine.id === localStorage.getItem("activeRoutine")) {
+        return true 
+    }
+}
 
     return (    
         <div className="routine" key={`routine--${routine.id}`}> 
@@ -13,6 +31,20 @@ export default ({ routine }) => {
                     <li>2. {routine.routine2}</li>
                     <li>3. {routine.routine3}</li>
                 </ul>
+                <fieldset>
+                <div className="form-group">
+                    <label htmlFor="name">Activate Routine {routine.id}</label>
+                    <input type="checkbox"
+                        checked={func()}
+                        onChange={
+                            (event) => {
+                                handleClick(routine.id)
+                            }
+                        }
+                         />
+                </div>
+                </fieldset>
         </div>   
     )
 }
+export default Routine

@@ -1,11 +1,12 @@
 import React, { useState, useEffect  } from "react"
 import { useHistory } from "react-router-dom"
-import { postFetch, getFetch } from "../ApiManager"
+import { postFetch } from "../ApiManager"
 import "./BaboonRoutineData.css"
 
 
 export const BaboonRoutineData = () => {
-    const [routines, setRoutines] = useState({})
+    const [ activeRoutine, setActiveRoutine] = useState({})
+    const [activeRoutineId, setActiveRoutineId] = useState({})
     const [routineData, setRoutineData] = useState({
         userId: 0,
         baboonRoutineId:0,
@@ -17,24 +18,39 @@ export const BaboonRoutineData = () => {
     });
     const history = useHistory()
 
-    const getBuilderForm = () => {
-        return getFetch("http://localhost:8088/routines")
-        .then(d => setRoutines(d))
-    }
-
+    const getCurrentRoutine = () => {
+        const currRoutineId = localStorage.getItem("activeRoutine")
+        return currRoutineId
+     }
     useEffect(
         () => {
-            getBuilderForm()
-            
+             const id = getCurrentRoutine()
+             setActiveRoutineId(parseInt(id))
+             
         },
         []
     )
+    
+    useEffect(
+        () => {
+            const getBuilderForm  = async () => {
+                const res = await fetch("http://localhost:8088/routines")
+                const data = await res.json()
+                      const filtered = (data.filter((item) => item.id === activeRoutineId))
+                      setActiveRoutine(filtered[0])
+                    }
+                    getBuilderForm()
+            },
+        []
+    )
+    console.log("activeRoutine", activeRoutine)
+    console.log("activeRoutineId", activeRoutineId)
 
     const submitRoutine = (event) => {
         event.preventDefault()
         const newRoutineData = {
             userId: parseInt(localStorage.getItem("baboon_user")),
-            routinesId: routines[0]?.id,
+            routinesId: activeRoutine?.id,
             didRoutine1: routineData.didRoutine1,
             didRoutine2: routineData.didRoutine2,
             didRoutine3: routineData.didRoutine3,
@@ -52,7 +68,7 @@ export const BaboonRoutineData = () => {
             <h2 className="ticketForm__title">Enter data for {new Date().toLocaleDateString()}</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">{routines[0]?.routine1}</label>
+                    <label htmlFor="name">{activeRoutine?.routine1}</label>
                     <input type="checkbox"
                         onChange={
                             (event) => {
@@ -66,7 +82,7 @@ export const BaboonRoutineData = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">{routines[0]?.routine2}</label>
+                    <label htmlFor="name">{activeRoutine?.routine2}</label>
                     <input type="checkbox"
                         onChange={
                             (event) => {
@@ -80,7 +96,7 @@ export const BaboonRoutineData = () => {
                 </fieldset>
                 <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">{routines[0]?.routine3}</label>
+                    <label htmlFor="name">{activeRoutine?.routine3}</label>
                     <input type="checkbox"
                         onChange={
                             (event) => {
@@ -113,7 +129,6 @@ export const BaboonRoutineData = () => {
                          />
                 </div>
             </fieldset>
-            
             <button className="btn btn-primary" onClick={submitRoutine}>
                 Submit Data
             </button>

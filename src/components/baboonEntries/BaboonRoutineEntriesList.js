@@ -8,17 +8,20 @@ export const BaboonRoutineEntriesList = () => {
     const [entries, setEntries] = useState([])
     const [user, setUser] = useState([])
     
-    
+    const renderEntries = () => {
+        getAllBaboonRoutineEntries("http://localhost:8088/routineEntries?_expand=routines")
+            .then((data) => {
+                setEntries(data)
+                console.log("entries:", data)
+            })
+    }
     useEffect(
         () => {
-            getAllBaboonRoutineEntries("http://localhost:8088/routineEntries?_expand=routines")
-                .then((data) => {
-                    setEntries(data)
-                    console.log("entries:", data)
-                })
+        renderEntries()
         },
         []
     )
+
     const getCurrentUser = () => {
         const currUserId = localStorage.getItem("baboon_user")
         return currUserId
@@ -30,13 +33,19 @@ export const BaboonRoutineEntriesList = () => {
         },
         []
     )
+    const deleteEntry = (id) => {
+        fetch(`http://localhost:8088/routineEntries/${id}`, {
+            method: "DELETE"
+        })
+        .then(renderEntries)
+    }
 
     return (
        <>
         <h2>Previous Entries</h2>
             <article className="entries-container">
                 {
-                    entries.filter(elem => elem.userId === user).map(item => <Entry entryKey={item.id} entry={item}/>)
+                    entries.filter(elem => elem.userId === user).map(item => <Entry entryKey={item.id} entry={item} deleteFunc={deleteEntry}/>)
                 }
             </article>
     )
