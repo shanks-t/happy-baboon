@@ -8,6 +8,8 @@ export const BaboonBuilderForm = () => {
  const [routine1, setRoutine1] = useState("")
  const [routine2, setRoutine2] = useState("")
  const [routine3, setRoutine3] = useState("")
+
+
  const history = useHistory()
 
 const addRoutine = (event) => {
@@ -16,10 +18,10 @@ const addRoutine = (event) => {
         userId: parseInt(localStorage.getItem("baboon_user")),
         routine1: routine1,
         routine2: routine2,
-        routine3: routine3
+        routine3: routine3,
     }
 
-    postFetch("http://localhost:8088/baboonRoutines", obj)
+    postFetch("http://localhost:8088/routines", obj)
         .then(() => {
             history.push("/Routines")
         })

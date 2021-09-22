@@ -4,7 +4,7 @@ import React from "react"
 import "./BaboonRoutineEntries.css"
 
 
-export default ({ entry }) => {
+export default ({ entry, deleteFunc }) => {
 // const { entryId } = useParams()
 //const { getCurrentUser } = useSimpleAuth()
 
@@ -33,6 +33,7 @@ export default ({ entry }) => {
                    <p>Anxiety Level: {entry?.anxietyLevel}</p>
                 }
                 </ul>
+                <button className="delete">Delete Entry</button>
         </div>   
     )
 }
