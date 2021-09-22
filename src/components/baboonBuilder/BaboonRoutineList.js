@@ -8,15 +8,19 @@ export const BaboonRoutineList = () => {
     const [user, setUser] = useState([])
     const [currRoutine, setCurrRoutine] = useState([])
 
+
+ const fetchEntries = () => {
+    getAllBaboonRoutineEntries("http://localhost:8088/routines")
+    .then((data) => {
+        setRoutines(data)
+        console.log("routines:", data)
+    })
+ }   
     useEffect(
         () => {
-            getAllBaboonRoutineEntries("http://localhost:8088/routines")
-                .then((data) => {
-                    setRoutines(data)
-                    console.log("routines:", data)
-                })
+            fetchEntries()
         },
-        [user]
+        [currRoutine]
     )
 
    
@@ -35,17 +39,15 @@ export const BaboonRoutineList = () => {
   
     useEffect(
         () => {
-            if(currRoutine) {
-const getCurrRoutine = () => {
+            
+            const getCurrRoutine = () => {
                 const currRoutineId = localStorage.getItem("activeRoutine")
                 return currRoutineId
             }
-             const routineId = getCurrRoutine()
-             setCurrRoutine(parseInt(routineId))
-            }
-            
+            const routineId = getCurrRoutine()
+            setCurrRoutine(parseInt(routineId))
         },
-        [currRoutine]
+        []
     )
     useEffect(() => {
         console.log("currRoutine", currRoutine)
@@ -60,7 +62,7 @@ const getCurrRoutine = () => {
         }
         <article className="routines-container">
                     {
-                        routines.filter(elem => elem.userId === user).map(item => <Routine entryKey={item.id} routine={item}/>)
+                            routines.filter(elem => elem.userId === user).map(item => <Routine entryKey={item.id} routine={item} setCurrRoutine={setCurrRoutine} currRoutine={currRoutine}/>)
                     }
                 </article>
         </>

@@ -2,19 +2,12 @@ import React, { useState, useEffect } from "react"
 import "./Routine.css"
 
 
-export const Routine = ({ routine }) => {
-const [activeRoutine, setActiveRoutine] = useState({})
+export const Routine = ({ routine, setCurrRoutine, currRoutine }) => {
 
-useEffect(
-    () => {
-
-}, 
-[activeRoutine]
-)
 
 const handleClick = (id) => {
     localStorage.setItem("activeRoutine", id)
-    setActiveRoutine(id)
+    setCurrRoutine(id)
 }
 
 
@@ -30,6 +23,7 @@ const handleClick = (id) => {
                 <div className="form-group">
                     <label htmlFor="name">Activate Routine {routine.id}</label>
                     <input type="checkbox"
+                        checked={routine.id === currRoutine ? true : false}
                         onChange={
                             (event) => {
                                 handleClick(routine.id)
