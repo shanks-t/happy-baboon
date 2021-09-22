@@ -26,10 +26,19 @@ export const BaboonRoutineData = () => {
         () => {
              const id = getCurrentRoutine()
              setActiveRoutineId(parseInt(id))
+    
+        },
+        []
+    )
+    useEffect(
+        () => {
+             const id = getCurrentRoutine()
+             setActiveRoutineId(parseInt(id))
              
         },
         []
     )
+
     
     useEffect(
         () => {

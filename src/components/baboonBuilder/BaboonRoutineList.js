@@ -16,33 +16,42 @@ export const BaboonRoutineList = () => {
                     console.log("routines:", data)
                 })
         },
-        []
+        [user]
     )
 
-    const getCurrentUser = () => {
-        const currUserId = localStorage.getItem("baboon_user")
-        return currUserId
-     }
+   
     useEffect(
         () => {
+            const getCurrentUser = () => {
+                const currUserId = localStorage.getItem("baboon_user")
+                return currUserId
+             }
              const id = getCurrentUser()
              setUser(parseInt(id))
         },
-        []
+        [user]
     )
     
-    const getCurrRoutine = () => {
-        const currRoutineId = localStorage.getItem("activeRoutine")
-        return currRoutineId
-    }
+  
     useEffect(
         () => {
+            if(currRoutine) {
+const getCurrRoutine = () => {
+                const currRoutineId = localStorage.getItem("activeRoutine")
+                return currRoutineId
+            }
              const routineId = getCurrRoutine()
              setCurrRoutine(parseInt(routineId))
+            }
+            
         },
-        []
+        [currRoutine]
     )
-
+    useEffect(() => {
+        console.log("currRoutine", currRoutine)
+        console.log("user", user)
+    }, [user, currRoutine])
+    
     return (
         <>
         {currRoutine 
