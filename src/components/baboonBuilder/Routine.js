@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import "./Routine.css"
 
 
-export const Routine = ({ routine, setCurrRoutine, currRoutine }) => {
+export const Routine = ({ routine, setCurrRoutine, currRoutine, deleteFunc }) => {
 
 
 const handleClick = (id) => {
@@ -30,6 +30,7 @@ const handleClick = (id) => {
                             }
                         }
                          />
+                         <button className="delete-routine" onClick={()=>deleteFunc(routine.id)}>delete</button>
                 </div>
                 </fieldset>
         </div>   
