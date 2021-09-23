@@ -28,3 +28,7 @@ li {
 p {
    text-align: center;
 }
+
+button {
+    align-items: center;
+}
