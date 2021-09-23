@@ -12,9 +12,9 @@ useEffect(
 [activeRoutine]
 )
 
-const handleClick = (id) => {
-    localStorage.setItem("activeRoutine", id)
-    setActiveRoutine(id)
+const handleClick = () => {
+    localStorage.setItem("activeRoutine", routine.id)
+    setActiveRoutine(routine.id)
 }
 
 
@@ -28,14 +28,10 @@ const handleClick = (id) => {
                 </ul>
                 <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Activate Routine {routine.id}</label>
-                    <input type="checkbox"
-                        onChange={
-                            (event) => {
-                                handleClick(routine.id)
-                            }
-                        }
-                         />
+                    {/* <label htmlFor="name">Activate Routine {routine.id}</label> */}
+                    <button className="activate-btn"
+                    onClick={handleClick}>activate</button>
+                         
                 </div>
                 </fieldset>
         </div>   

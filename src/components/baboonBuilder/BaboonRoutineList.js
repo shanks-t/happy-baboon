@@ -10,13 +10,16 @@ export const BaboonRoutineList = () => {
 
     useEffect(
         () => {
+          const getRoutines = () => {
             getAllBaboonRoutineEntries("http://localhost:8088/routines")
                 .then((data) => {
                     setRoutines(data)
                     console.log("routines:", data)
-                })
+                }) 
+            }
+            getRoutines()
         },
-        [user]
+        [ currRoutine]
     )
 
    
@@ -35,27 +38,27 @@ export const BaboonRoutineList = () => {
   
     useEffect(
         () => {
-            if(currRoutine) {
-const getCurrRoutine = () => {
+           
+                const getCurrRoutine = () => {
                 const currRoutineId = localStorage.getItem("activeRoutine")
                 return currRoutineId
             }
              const routineId = getCurrRoutine()
              setCurrRoutine(parseInt(routineId))
-            }
-            
         },
         [currRoutine]
     )
     useEffect(() => {
         console.log("currRoutine", currRoutine)
         console.log("user", user)
-    }, [user, currRoutine])
-    
+    }, 
+    [user, currRoutine])
+
+
     return (
         <>
         {currRoutine 
-        ? <h2> Current Following Routine {currRoutine}</h2>
+        ? <h2> Currently Following Routine {currRoutine}</h2>
         : <h2>Not Currently Following Any Routines</h2>
         }
         <article className="routines-container">
