@@ -5,6 +5,8 @@ import "./BaboonRoutineData.css"
 
 
 export const BaboonRoutineData = () => {
+ 
+    const today = new Date().toLocaleDateString()
     const [ activeRoutine, setActiveRoutine] = useState({})
     const [ dateForEntry, setDateForEntry ] = useState("") 
     const [activeRoutineId, setActiveRoutineId] = useState(0)
@@ -15,7 +17,7 @@ export const BaboonRoutineData = () => {
         didRoutine2: false,
         didRoutine3: false,
         anxietyLevel: false,
-        date: "",
+        date: today,
     });
     const history = useHistory()
 
@@ -54,7 +56,7 @@ useEffect(() => {
     console.log("activeRoutineId", activeRoutineId)
 }, [activeRoutine, activeRoutineId])
 
-const today = new Date().toLocaleDateString()
+
 
     const submitRoutine = (event) => {
         event.preventDefault()
@@ -65,7 +67,7 @@ const today = new Date().toLocaleDateString()
             didRoutine2: routineData.didRoutine2,
             didRoutine3: routineData.didRoutine3,
             anxietyLevel: routineData.anxietyLevel,
-            date: new Date().toLocaleDateString(),
+            date: routineData.date,
         }
 
         postFetch("http://localhost:8088/routineEntries", newRoutineData)
@@ -156,7 +158,6 @@ console.log("dateForEntry:", dateForEntry)
                             }
                         }
                         required autoFocus
-                        requiredPattern="\d{2}-\d{2}\-d{4}"
                         type="date"
                         className="date"
                         
