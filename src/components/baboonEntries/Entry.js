@@ -16,24 +16,24 @@ export const Entry = ({ entry, deleteFunc }) => {
                 {
                     entry?.didRoutine1 === true
                     
-                    ? <li>✅ I did {entry?.routines?.routine1}</li>
-                    : <li>❌ I did not {entry?.routines?.routine1}</li>
+                    ? <li>✅  {entry?.routines?.routine1}</li>
+                    : <li>❌  {entry?.routines?.routine1}</li>
                 }
                 {
                     entry?.didRoutine2 === true
-                    ? <li>✅ I did {entry?.routines?.routine2}</li>
-                    : <li>❌ I did not {entry?.routines?.routine2}</li>
+                    ? <li>✅  {entry?.routines?.routine2}</li>
+                    : <li>❌  {entry?.routines?.routine2}</li>
                 }
                 {
                     entry?.didRoutine3 === true
-                    ? <li>✅ I did {entry?.routines?.routine3}</li>
-                    : <li>❌ I did not {entry?.routines?.routine3}</li>
+                    ? <li>✅  {entry?.routines?.routine3}</li>
+                    : <li>❌  {entry?.routines?.routine3}</li>
                 }
                 {
                    <p>Anxiety Level: {entry?.anxietyLevel}</p>
                 }
                 </ul>
-                <button className="delete">Delete Entry</button>
+                <button className="delete" onClick={()=>deleteFunc(entry.id)}>Delete Entry</button>
         </div>   
     )
 }
