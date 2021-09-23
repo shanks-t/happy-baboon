@@ -4,7 +4,7 @@ import "./Routine.css"
 
 
 export const Routine = ({ routine, setCurrRoutine, currRoutine, deleteFunc }) => {
-const [routineChart, setRoutineChart] = useState(0)
+//const [routineChart, setRoutineChart] = useState(0)
 const history = useHistory()
 const handleClick = (id) => {
     localStorage.setItem("activeRoutine", id)
@@ -12,8 +12,11 @@ const handleClick = (id) => {
 }
 const showChart = (id) => {
     history.push(`/Routines/${id}`)
-    setRoutineChart(id)
     }
+
+const compareRoutines = (id1, id2) => {
+    history.push(`/routines/compare`)
+}
 
     return (    
         <div className="routine" key={`routine--${routine.id}`}> 

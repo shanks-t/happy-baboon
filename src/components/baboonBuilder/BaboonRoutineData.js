@@ -75,6 +75,7 @@ useEffect(() => {
                 history.push("/RoutineEntries")
             })
     }
+    
 useEffect(() => {
 console.log("dateForEntry:", dateForEntry)
 }, [])

@@ -11,13 +11,13 @@ export const NavBar = ({ img }) => {
                 <img src={img} alt="" with="90px" height="90px" />
                 </li>
                 <li className="navbar__item active">
-                    <Link className="navbar__link" to="/RoutineForm">Baboon Routine</Link>
+                    <Link className="navbar__link" to="/RoutineForm">Current Routine</Link>
                 </li>
                 <li className="navbar__item active">
-                    <Link className="navbar__link" to="/RoutineEntries">Baboon Routine Entries</Link>
+                    <Link className="navbar__link" to="/RoutineEntries">Routine Entries</Link>
                 </li>
                 <li className="navbar__item active">
-                    <Link className="navbar__link" to="/RoutineBuilder">Baboon Routine Builder</Link>
+                    <Link className="navbar__link" to="/RoutineBuilder">Routine Builder</Link>
                 </li>
                 <li className="navbar__item active">
                     <Link className="navbar__link" to="/Routines">Routines</Link>
