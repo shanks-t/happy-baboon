@@ -6,6 +6,7 @@ import "./BaboonRoutineData.css"
 
 export const BaboonRoutineData = () => {
     const [ activeRoutine, setActiveRoutine] = useState({})
+    const [ dateForEntry, setDateForEntry ] = useState("") 
     const [activeRoutineId, setActiveRoutineId] = useState(0)
     const [routineData, setRoutineData] = useState({
         userId: 0,
@@ -30,16 +31,7 @@ export const BaboonRoutineData = () => {
         },
         []
     )
-    useEffect(
-        () => {
-             const id = getCurrentRoutine()
-             setActiveRoutineId(parseInt(id))
-             
-        },
-        []
-    )
 
-    
     useEffect(
         () => {
             if (activeRoutineId) {
@@ -62,6 +54,8 @@ useEffect(() => {
     console.log("activeRoutineId", activeRoutineId)
 }, [activeRoutine, activeRoutineId])
 
+const today = new Date().toLocaleDateString()
+
     const submitRoutine = (event) => {
         event.preventDefault()
         const newRoutineData = {
@@ -79,9 +73,13 @@ useEffect(() => {
                 history.push("/RoutineEntries")
             })
     }
+useEffect(() => {
+console.log("dateForEntry:", dateForEntry)
+}, [])
+
     return (
         <form className="ticketForm">
-            <h2 className="ticketForm__title">Enter Routine {activeRoutine?.id} Data for {new Date().toLocaleDateString()}</h2>
+            <h2 className="ticketForm__title">Enter Routine {activeRoutine?.id} Data for {dateForEntry ? dateForEntry : today}</h2>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="name">{activeRoutine?.routine1}</label>
@@ -142,6 +140,26 @@ useEffect(() => {
                         step=".1"
                         className="anxiety"
                         placeholder="Anxiety Level"
+                         />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="description">Date of entry: </label>
+                    <input
+                        onChange={
+                            (event) => {
+                                const copy = {...routineData}
+                                copy.date = event.target.value
+                                setRoutineData(copy)
+                                setDateForEntry(event.target.value)
+                            }
+                        }
+                        required autoFocus
+                        requiredPattern="\d{2}-\d{2}\-d{4}"
+                        type="date"
+                        className="date"
+                        
                          />
                 </div>
             </fieldset>
