@@ -55,6 +55,12 @@ export const BaboonRoutineList = () => {
     }, 
     [user, currRoutine])
 
+    const deleteRoutine = (id) => {
+        fetch(`http://localhost:8088/routines/${id}`, {
+            method: "DELETE"
+        })
+        .then(fetchEntries)
+    }
 
     return (
         <>
@@ -64,7 +70,7 @@ export const BaboonRoutineList = () => {
         }
         <article className="routines-container">
                     {
-                            routines.filter(elem => elem.userId === user).map(item => <Routine entryKey={item.id} routine={item} setCurrRoutine={setCurrRoutine} currRoutine={currRoutine}/>)
+                            routines.filter(elem => elem.userId === user).map(item => <Routine entryKey={item.id} routine={item} setCurrRoutine={setCurrRoutine} currRoutine={currRoutine} deleteFunc={deleteRoutine}/>)
                     }
                 </article>
         </>
