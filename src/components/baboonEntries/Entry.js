@@ -1,6 +1,4 @@
 import React from "react"
-//import { Link, useParams } from "react-router-dom"
-//import useSimpleAuth from "../../hooks/ui/useSimpleAuth";
 import "./BaboonRoutineEntries.css"
 
 
