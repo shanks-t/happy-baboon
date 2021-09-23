@@ -4,7 +4,7 @@ import React from "react"
 import "./BaboonRoutineEntries.css"
 
 
-export default ({ entry, deleteFunc }) => {
+export const Entry = ({ entry, deleteFunc }) => {
 // const { entryId } = useParams()
 //const { getCurrentUser } = useSimpleAuth()
 
@@ -37,3 +37,4 @@ export default ({ entry, deleteFunc }) => {
         </div>   
     )
 }
+export default Entry
