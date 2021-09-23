@@ -13,7 +13,7 @@ export const Chart = () => {
             labels: data.map(item => item.date),
             datasets: [
                 {
-                    label: "Anxiety Level",
+                    label: `Anxiety Levels for Routine ${id}`,
                     data: data.map((item) => item.anxietyLevel),
                     backgroundColor: [
                         "#ffbb11",
