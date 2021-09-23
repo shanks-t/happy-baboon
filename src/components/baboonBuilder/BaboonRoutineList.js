@@ -52,12 +52,14 @@ export const BaboonRoutineList = () => {
     useEffect(() => {
         console.log("currRoutine", currRoutine)
         console.log("user", user)
-    }, [user, currRoutine])
-    
+    }, 
+    [user, currRoutine])
+
+
     return (
         <>
         {currRoutine 
-        ? <h2> Current Following Routine {currRoutine}</h2>
+        ? <h2> Currently Following Routine {currRoutine}</h2>
         : <h2>Not Currently Following Any Routines</h2>
         }
         <article className="routines-container">
