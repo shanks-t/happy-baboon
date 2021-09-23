@@ -28,6 +28,7 @@ export const NavBar = ({ img }) => {
                     onClick={ 
                         ()=> {
                             localStorage.removeItem("baboon_user")
+                            localStorage.removeItem("activeRoutine")
                         }
                         }>
                         

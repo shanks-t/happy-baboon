@@ -7,7 +7,7 @@ export const Entry = ({ entry, deleteFunc }) => {
 //const { getCurrentUser } = useSimpleAuth()
 
 
-    return (    
+    return (
         <div className="entry" key={`entry--${entry.id}`}> 
                 {entry?.date}
                 <ul>
