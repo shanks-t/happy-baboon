@@ -34,7 +34,7 @@ const addRoutine = (event) => {
             <div className="builder">
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="description">Routine (word routine as a true/false e.g. "meditate 30 minutes a day"):</label>
+                    <label htmlFor="description">Add Routines Here (e.g. "meditate 30 minutes a day"):</label>
                     <div>
                     <input
                         value={routine1}
