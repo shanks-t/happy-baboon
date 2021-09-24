@@ -22,7 +22,7 @@ export const Register = () => {
         }
 
         register(newUser).then(() => {
-            history.push("/")
+            history.push("/Routines")
         })
     }
 
@@ -36,7 +36,7 @@ export const Register = () => {
     return (
         <main style={{ textAlign: "center" }}>
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for NSS Kennels</h1>
+                <h1 className="h3 mb-3 font-weight-normal">Register for Happy Baboon</h1>
                 <fieldset>
                     <label htmlFor="firstName"> First Name </label>
                     <input type="text" onChange={handleUserInput}
