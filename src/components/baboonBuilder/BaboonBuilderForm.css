@@ -3,5 +3,17 @@ label {
 }
 
 .form_state {
-    margin-top: 10px
+    margin-top: 10px;
+    text-align: center;
+}
+
+.builder {
+    text-align: center;
+    border-style: double;
+    border-color: aquamarine;
+    border-width: thick;
+}
+
+button {
+    align-items: center;
 }

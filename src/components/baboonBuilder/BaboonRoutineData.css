@@ -2,3 +2,10 @@
     width: 60px;
     margin-left: 3px
 }
+
+.entry-input {
+    text-align: center;
+    border-style: groove;
+    border-color: aquamarine;
+    border-width: thick;
+}

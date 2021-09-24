@@ -82,8 +82,10 @@ console.log("dateForEntry:", dateForEntry)
 const notActive = "No Active Routine for"
 const active = `Enter Routine ${activeRoutineId} Data for`
     return (
+       
         <form className="ticketForm">
             <h2 className="ticketForm__title">{!activeRoutineId>0 ? notActive : active} {dateForEntry ? dateForEntry : today}</h2>
+            <div className="entry-input">
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="name">{activeRoutine?.routine1}</label>
@@ -169,7 +171,9 @@ const active = `Enter Routine ${activeRoutineId} Data for`
             <button className="btn btn-primary" onClick={submitRoutine}>
                 Submit Data
             </button>
+            </div>
         </form>
+    
     )
 
 }
