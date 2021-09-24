@@ -69,10 +69,10 @@ export const BaboonRoutineList = () => {
         : <h2>Not Currently Following Any Routines</h2>
         }
         <article className="routines-container">
-                    {
-                            routines.filter(elem => elem.userId === user).map(item => <Routine entryKey={item.id} routine={item} setCurrRoutine={setCurrRoutine} currRoutine={currRoutine} deleteFunc={deleteRoutine}/>)
-                    }
-                </article>
+            {
+                    routines.filter(elem => elem.userId === user).map(item => <Routine entryKey={item.id} routine={item} setCurrRoutine={setCurrRoutine} currRoutine={currRoutine} deleteFunc={deleteRoutine}/>)
+            }
+        </article>
         </>
     )
 }

@@ -15,6 +15,9 @@ export const ApplicationViews = () => {
             <Route exact path="/Routines">
                 <BaboonRoutineList />
             </Route>
+            <Route exact path="/Routines/:id">
+                <Chart />
+            </Route>
             <Route exact path="/RoutineEntries">
                 <BaboonRoutineEntriesList />
             </Route>
@@ -22,10 +25,8 @@ export const ApplicationViews = () => {
                 <BaboonRoutineData />
             </Route>
             
-            <Route exact path="/charts">
-                <Chart />
-            </Route>
             
         </>
     )
 }
+// /Routines/:routineId(\d+)

@@ -1,18 +1,24 @@
-import React, { useState, useEffect } from "react"
+import React, {useState} from "react"
+import { useHistory } from "react-router-dom"
 import "./Routine.css"
 
 
 export const Routine = ({ routine, setCurrRoutine, currRoutine, deleteFunc }) => {
-
-
+//const [routineChart, setRoutineChart] = useState(0)
+const history = useHistory()
 const handleClick = (id) => {
     localStorage.setItem("activeRoutine", id)
     setCurrRoutine(id)
 }
 
+const showChart = (id) => {
+    history.push(`/Routines/${id}`)
+    }
+
 
     return (    
         <div className="routine" key={`routine--${routine.id}`}> 
+                <button className="charts" onClick={()=>showChart(routine.id)}>show charts</button>
                 <p>Routine #{routine?.id}</p>
                 <ul>
                     <li>1. {routine.routine1}</li>
@@ -26,7 +32,9 @@ const handleClick = (id) => {
                         checked={routine.id === currRoutine ? true : false}
                         onChange={
                             (event) => {
-                                handleClick(routine.id)
+                                routine.id === currRoutine ?
+                                handleClick(null)
+                                : handleClick(routine.id)
                             }
                         }
                          />

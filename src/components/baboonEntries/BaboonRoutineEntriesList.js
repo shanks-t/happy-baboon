@@ -56,7 +56,12 @@ export const BaboonRoutineEntriesList = () => {
 
     return (
        <>
-        <h2>Previous Entries for {currRoutine}</h2>
+       {
+            currRoutine ?
+            <h2>Previous Entries for Routine {currRoutine}</h2>
+            : <h2>Activate a Routine to See Entries</h2>
+       }
+        
             <article className="entries-container">
                 {
                     entries.filter(elem => elem.userId === user).filter(thing => thing.routinesId === currRoutine).map(item => <Entry entryKey={item.id} entry={item} deleteFunc={deleteEntry}/>)

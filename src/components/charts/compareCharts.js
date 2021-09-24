@@ -4,28 +4,16 @@ import { useParams } from "react-router-dom"
 
 export const Chart = () => {
     const [chartData, setChartData] = useState({})
-    const { id } = useParams()
+    const [compareData, setCompareData] = useState({})
     console.log("id:", id)
     const getEntriesByRoutine = () => {   
-        return fetch(`http://localhost:8088/routineEntries?routinesId=${id}`)
+        return fetch(`http://localhost:8088/routineEntries`)
         .then(res => res.json())
-        .then(data => setChartData({
-            labels: data.map(item => item.date),
-            datasets: [
-                {
-                    label: `Anxiety Levels for Routine ${id}`,
-                    data: data.map((item) => item.anxietyLevel),
-                    backgroundColor: [
-                        "#ffbb11",
-                        "#ecf0f1",
-                        "#50AF95",
-                        "#f3ba2f",
-                        "#2a71d0"
-                    ]
-                }
-            ]
-        }))
+        .then(data => setChartData(data))
     }
+
+
+
     useEffect(() => {
         getEntriesByRoutine()
     }, [])
