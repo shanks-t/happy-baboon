@@ -10,7 +10,7 @@ export const Chart = () => {
         return fetch(`http://localhost:8088/routineEntries?routinesId=${id}`)
         .then(res => res.json())
         .then(data => setChartData({
-            labels: data.map(item => item.date),
+            labels: data.sort((a, b) => new Date(a.date) - new Date(b.date)).map(item => item.date),
             datasets: [
                 {
                     label: `Anxiety Levels for Routine ${id}`,

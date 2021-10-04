@@ -75,16 +75,16 @@ useEffect(() => {
                 history.push("/RoutineEntries")
             })
     }
-    
 useEffect(() => {
 console.log("dateForEntry:", dateForEntry)
 }, [])
 const notActive = "No Active Routine for"
 const active = `Enter Routine ${activeRoutineId} Data for`
     return (
-       
         <form className="ticketForm">
             <h2 className="ticketForm__title">{!activeRoutineId>0 ? notActive : active} {dateForEntry ? dateForEntry : today}</h2>
+            <div className="container">
+
             <div className="entry-input">
             <fieldset>
                 <div className="form-group">
@@ -172,6 +172,8 @@ const active = `Enter Routine ${activeRoutineId} Data for`
                 Submit Data
             </button>
             </div>
+            </div>
+            
         </form>
     
     )

@@ -9,7 +9,7 @@ label {
 
 .builder {
     text-align: center;
-    border-style: double;
+    border-style: groove;
     border-color: aquamarine;
     border-width: thick;
 }

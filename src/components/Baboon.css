@@ -1,4 +1,8 @@
-
+body {
+    background-image: url('https://static.vecteezy.com/system/resources/previews/000/299/535/original/jungle-landscape-background-scene-vector.jpg');
+    background-size: 2000px 2000px;
+    background-repeat: no-repeat;
+}
 
 ul {
     list-style-type: none;

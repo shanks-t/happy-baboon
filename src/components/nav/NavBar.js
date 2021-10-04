@@ -1,14 +1,16 @@
 //import React from "react"
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom" 
 import "./NavBar.css"
 
 export const NavBar = ({ img }) => {
  console.log(img)
     return (
-            <ul className="navbar_with_img">
+        <nav className="navbar">
+                <div className="logo-holder">
+                </div>
                 <li className="navbar__img">
-                <img src={img} alt="" with="90px" height="90px" />
+                <img src="https://image.freepik.com/free-vector/monkey_1308-33327.jpg" alt="logo" width="100" height="150"/>
                 </li>
                 <li className="navbar__item active">
                     <Link className="navbar__link" to="/RoutineForm">Current Routine</Link>
@@ -34,8 +36,8 @@ export const NavBar = ({ img }) => {
                         
                         Logout
                     </Link>
-
                 </li>
-            </ul>
+        </nav>
+
     )
 }
