@@ -16,3 +16,20 @@
     border-width: thick;
     background: linear-gradient(45deg, aqua, transparent);
 }
+
+.journal {
+    font-size: 20px;
+    width: 60%;
+    padding: 0 0 400px 0;
+    /* box-sizing: border-box; */
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+
+.form-group {
+    margin-right: 3px;
+    color: coral;
+    text-shadow: 2px 2px black;
+}

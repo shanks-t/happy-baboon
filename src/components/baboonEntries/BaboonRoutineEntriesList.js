@@ -64,7 +64,7 @@ export const BaboonRoutineEntriesList = () => {
         
             <article className="entries-container">
                 {
-                    entries.filter(elem => elem.userId === user).filter(thing => thing.routinesId === currRoutine).map(item => <Entry entryKey={item.id} entry={item} deleteFunc={deleteEntry}/>)
+                    entries.filter(elem => elem.userId === user).filter(thing => thing.routinesId === currRoutine).sort((a, b) => new Date(a.date) - new Date(b.date)).map(item => <Entry entryKey={item.id} entry={item} deleteFunc={deleteEntry}/>)
                 }
             </article>
     )

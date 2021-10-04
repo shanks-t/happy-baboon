@@ -18,6 +18,7 @@ export const BaboonRoutineData = () => {
         didRoutine3: false,
         anxietyLevel: false,
         date: today,
+        journal: ""
     });
     const history = useHistory()
 
@@ -67,6 +68,7 @@ useEffect(() => {
             didRoutine2: routineData.didRoutine2,
             didRoutine3: routineData.didRoutine3,
             anxietyLevel: routineData.anxietyLevel,
+            journal: routineData.journal,
             date: routineData.date,
         }
 
@@ -130,7 +132,7 @@ const active = `Enter Routine ${activeRoutineId} Data for`
                 </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="description">Anxiety Level from 0.0 to 10.0:</label>
+                    <label htmlFor="description">Anxiety Level from 0.0 to 10.0: </label>
                     <input
                         onChange={
                             (event) => {
@@ -140,6 +142,7 @@ const active = `Enter Routine ${activeRoutineId} Data for`
                             }
                         }
                         required autoFocus
+                        width="30"
                         type="number"
                         min="0.1"
                         max="10"
@@ -166,6 +169,20 @@ const active = `Enter Routine ${activeRoutineId} Data for`
                         className="date"
                         
                          />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="description">Journal Entries: </label>
+                    <textarea
+                        onChange={
+                            (event) => {
+                                const copy = {...routineData}
+                                copy.journal = event.target.value
+                                setRoutineData(copy)
+                            }
+                        }>
+                         </textarea>
                 </div>
             </fieldset>
             <button className="btn btn-primary" onClick={submitRoutine}>

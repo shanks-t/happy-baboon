@@ -19,7 +19,7 @@
     animation: jiggle 0.2s;
     transition: .4s all ease;
     z-index: 11;
-    box-shadow: 5px 15px 20px rgba(72, 62, 23, 0.4)
+    box-shadow: 5px 15px 20px rgba(72, 62, 23, 0.4);
 }
 
 li {
@@ -38,4 +38,14 @@ h2 {
     font-size: 3rem;
    text-align: center;
    background: linear-gradient(45deg, aqua, transparent);
+}
+
+.hide {
+    display: none;
+}
+
+.date:hover + .hide {
+    display: block;
+    color: coral;
+    text-shadow: 2px 2px black;
 }
