@@ -19,3 +19,11 @@
     color: coral;
     text-shadow: 2px 2px black;
 }
+
+.form_state {
+    margin-top: 50px;
+    font-size: xx-large;
+    color: coral;
+    text-shadow: 2px 2px black;
+    text-align: center;
+}
