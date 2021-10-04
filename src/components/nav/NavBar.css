@@ -1,15 +1,25 @@
-.navbar_with_img {
+.navbar {
+    list-style-type: none;
     display: flex;
+    align-items: center;
     flex-wrap: nowrap;
-    justify-content: ;
+    justify-content: space-between;
 }
 
 .navbar__item {
     flex-basis: 20%;
     list-style-type: none;
     padding-top: 1.5em;
+    font-family: monospace;
+    font-size: x-large;
+    font-weight: 800;
+
 }
 
+.navbar__link {
+    color: coral;
+    font-weight: 500;
+}
 .navbar__img {
     padding-right: 2em;
 }

@@ -6,6 +6,7 @@
    justify-content: space-evenly;
 }
 .routine {
+    border-radius: 25px;
     width: 15rem;
     margin-top: 1rem;
     padding: 1rem;

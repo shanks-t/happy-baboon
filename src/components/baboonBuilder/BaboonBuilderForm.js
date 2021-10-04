@@ -28,13 +28,14 @@ const addRoutine = (event) => {
     }
     return (
        <>    
-    
-        <form className="ticketForm">
-            <h2 className="ticketForm__title">Add Goals To Create Your own Happy Baboon Routine</h2>
-            <div className="builder">
+       <h2 className="ticketForm__title">Add Goals To Create Your own Happy Baboon Routine</h2>
+        
+        <form className="ticketForm"> 
+            <div className="container">
+            <div className="entry-input">
             <fieldset>
+            <label className="label" htmlFor="description">Add Routines Here (e.g. "meditate 30 minutes a day"):</label>
                 <div className="form-group">
-                    <label htmlFor="description">Add Routines Here (e.g. "meditate 30 minutes a day"):</label>
                     <div>
                     <input
                         value={routine1}
@@ -71,17 +72,20 @@ const addRoutine = (event) => {
                         placeholder="enter routine 3 here"
                          />
                     </div>
+                    <button className="btn btn-primary" onClick={addRoutine}>
+                    Submit This Routine
+                    </button>
                 </div>
             </fieldset>
             </div>
+            
+            
+        </div>
         </form>
     
-                {
-                    
-                            <button onClick={addRoutine}
-                            >Submit This Routine</button>
-                            
-                }
+
+        
+
                 <div className="form_state">
                     <div>{routine1}</div>
                     <div>{routine2}</div>

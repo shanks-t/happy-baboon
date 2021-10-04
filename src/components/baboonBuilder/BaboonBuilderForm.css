@@ -1,19 +1,21 @@
-label {
-    margin-top: 10px;
+.container {
+    display: flex;
+    margin-top: 20px;
+   justify-content: center;
 }
 
-.form_state {
-    margin-top: 10px;
+.entry-input {
+    border-radius: 25px;
+    padding: 5px;
+    background-color: coral;
     text-align: center;
-}
-
-.builder {
-    text-align: center;
-    border-style: double;
+    border-style: groove;
     border-color: aquamarine;
     border-width: thick;
+    background: linear-gradient(45deg, aqua, transparent);
 }
 
-button {
-    align-items: center;
+.label {
+    color: coral;
+    text-shadow: 2px 2px black;
 }

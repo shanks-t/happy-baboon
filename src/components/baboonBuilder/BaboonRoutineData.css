@@ -1,11 +1,18 @@
-.anxiety {
-    width: 60px;
-    margin-left: 3px
+.container {
+    display: flex;
+    margin-top: 20px;
+   justify-content: center;
 }
 
 .entry-input {
+    font-size: x-large;
+    font-weight: 500;
+    border-radius: 25px;
+    padding: 5px;
+    background-color: coral;
     text-align: center;
     border-style: groove;
     border-color: aquamarine;
     border-width: thick;
+    background: linear-gradient(45deg, aqua, transparent);
 }
