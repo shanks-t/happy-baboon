@@ -32,9 +32,10 @@ p {
 h2 {
     background-color: aqua;
     color: coral;
-    border: black;
+    text-shadow: 2px 2px black;
     border-style: solid;
     font-family: monospace;
     font-size: 3rem;
    text-align: center;
+   background: linear-gradient(45deg, aqua, transparent);
 }

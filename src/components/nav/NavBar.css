@@ -12,8 +12,14 @@
     padding-top: 1.5em;
     font-family: monospace;
     font-size: x-large;
+    font-weight: 800;
+
 }
 
+.navbar__link {
+    color: coral;
+    font-weight: 500;
+}
 .navbar__img {
     padding-right: 2em;
 }

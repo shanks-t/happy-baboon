@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react" 
 import { Line } from "react-chartjs-2";
 import { useParams } from "react-router-dom"
+import "./Chart.css"
 
 export const Chart = () => {
     const [chartData, setChartData] = useState({})
