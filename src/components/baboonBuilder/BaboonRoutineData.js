@@ -132,7 +132,7 @@ const active = `Enter Routine ${activeRoutineId} Data for`
                 </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="description">Anxiety Level from 0.0 to 10.0:</label>
+                    <label htmlFor="description">Anxiety Level from 0.0 to 10.0: </label>
                     <input
                         onChange={
                             (event) => {
@@ -142,6 +142,7 @@ const active = `Enter Routine ${activeRoutineId} Data for`
                             }
                         }
                         required autoFocus
+                        width="30"
                         type="number"
                         min="0.1"
                         max="10"
