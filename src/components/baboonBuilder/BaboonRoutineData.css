@@ -28,8 +28,8 @@
     resize: none;
 }
 
-.form-group {
-    margin-right: 3px;
-    color: coral;
-    text-shadow: 2px 2px black;
+li {
+    margin: 3px;
+    font-size: 20px;
+    font-weight: 550;
 }
