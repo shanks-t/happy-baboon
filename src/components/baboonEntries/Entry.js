@@ -9,7 +9,8 @@ export const Entry = ({ entry, deleteFunc }) => {
 
     return (
         <div className="entry" key={`entry--${entry.id}`}> 
-                {entry?.date}
+                <div className="date">{entry?.date}</div>
+                <div className="hide">{entry?.journal}</div>
                 <ul>
                 {
                     entry?.didRoutine1 === true

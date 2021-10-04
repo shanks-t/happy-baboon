@@ -160,7 +160,7 @@ const active = `Enter Routine ${activeRoutineId} Data for`
                             (event) => {
                                 const copy = {...routineData}
                                 copy.date = event.target.value
-                                
+                                setRoutineData(copy)
                                 setDateForEntry(event.target.value)
                             }
                         }
