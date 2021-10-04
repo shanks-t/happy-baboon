@@ -18,6 +18,7 @@ export const BaboonRoutineData = () => {
         didRoutine3: false,
         anxietyLevel: false,
         date: today,
+        journal: ""
     });
     const history = useHistory()
 
@@ -67,6 +68,7 @@ useEffect(() => {
             didRoutine2: routineData.didRoutine2,
             didRoutine3: routineData.didRoutine3,
             anxietyLevel: routineData.anxietyLevel,
+            journal: routineData.journal,
             date: routineData.date,
         }
 
@@ -157,7 +159,7 @@ const active = `Enter Routine ${activeRoutineId} Data for`
                             (event) => {
                                 const copy = {...routineData}
                                 copy.date = event.target.value
-                                setRoutineData(copy)
+                                
                                 setDateForEntry(event.target.value)
                             }
                         }
@@ -166,6 +168,20 @@ const active = `Enter Routine ${activeRoutineId} Data for`
                         className="date"
                         
                          />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="description">Journal Entries: </label>
+                    <textarea
+                        onChange={
+                            (event) => {
+                                const copy = {...routineData}
+                                copy.journal = event.target.value
+                                setRoutineData(copy)
+                            }
+                        }>
+                         </textarea>
                 </div>
             </fieldset>
             <button className="btn btn-primary" onClick={submitRoutine}>
