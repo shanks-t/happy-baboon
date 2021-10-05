@@ -10,7 +10,7 @@ export const NavBar = ({ img }) => {
                 <div className="logo-holder">
                 </div>
                 <li className="navbar__img">
-                <img src="https://image.freepik.com/free-vector/monkey_1308-33327.jpg" alt="logo" width="100" height="150"/>
+                <img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX5198716.jpg" alt="logo" width="100" height="150"/>
                 </li>
                 <li className="navbar__item active">
                     <Link className="navbar__link" to="/RoutineForm">Current Routine</Link>
