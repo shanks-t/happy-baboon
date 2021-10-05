@@ -173,7 +173,7 @@ const active = `Enter Routine ${activeRoutineId} Data for`
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="description">Journal Entries: </label>
+                    <label htmlFor="description">Journal Entry: </label>
                     <textarea
                         onChange={
                             (event) => {

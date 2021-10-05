@@ -24,13 +24,14 @@
 
 li {
     text-align: left;
+    color: coral;
+    text-shadow: 2px 2px black;
 }
 
 p {
    text-align: center;
 }
 
-button {
-    align-items: center;
+.delete-routine {
+    text-align: center;
 }
-

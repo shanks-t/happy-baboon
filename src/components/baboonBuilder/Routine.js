@@ -38,9 +38,9 @@ const showChart = (id) => {
                             }
                         }
                          />
-                         <button className="delete-routine" onClick={()=>deleteFunc(routine.id)}>delete</button>
                 </div>
                 </fieldset>
+                <button className="delete-routine" onClick={()=>deleteFunc(routine.id)}>delete</button>
         </div>   
     )
 }

@@ -29,7 +29,13 @@
 }
 
 li {
+    
     margin: 3px;
     font-size: 20px;
     font-weight: 550;
+}
+
+.form-group {
+    color: coral;
+    text-shadow: 2px 2px black;
 }
