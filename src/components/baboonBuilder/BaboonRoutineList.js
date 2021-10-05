@@ -7,14 +7,20 @@ export const BaboonRoutineList = () => {
     const [routines, setRoutines] = useState([])
     const [user, setUser] = useState([])
     const [currRoutine, setCurrRoutine] = useState([])
+    const [name, setName] = useState("Clyde")
 
+
+    const getUserName = () => {
+        const userObj = routines.find(item => item.userId === user)
+        setName(userObj?.user?.name)
+    }
 
  const fetchEntries = () => {
-    getAllBaboonRoutineEntries("http://localhost:8088/routines")
+    getAllBaboonRoutineEntries("http://localhost:8088/routines?_expand=user")
     .then((data) => {
         setRoutines(data)
         console.log("routines:", data)
-    })
+    }).then(getUserName)   
  }   
     useEffect(
         () => {
@@ -62,11 +68,13 @@ export const BaboonRoutineList = () => {
         .then(fetchEntries)
     }
 
+
+
     return (
         <>
         {currRoutine 
-        ? <h2> Currently Following Routine {currRoutine}</h2>
-        : <h2>Not Currently Following Any Routines</h2>
+        ? <h2> Hello Clyde! You Are Currently Following Routine {currRoutine}</h2>
+        : <h2>Hello Clyde! You Are Not Currently Following Any Routines</h2>
         }
         <article className="routines-container">
             {
